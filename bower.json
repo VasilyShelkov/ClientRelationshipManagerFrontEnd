@@ -1,0 +1,24 @@
+{
+  "name": "ClientRelationshipManagerFrontEnd",
+  "version": "1.0.0",
+  "description": "The web fron end application for Client Relationship Manager",
+  "main": "index.html",
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "authors": [
+    "Vasily Shelkov"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "materialize": "~0.96.1"
+  }
+}

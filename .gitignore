@@ -25,3 +25,14 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
+*.iml
+.idea/.name
+.idea/encodings.xml
+.idea/jsLibraryMappings.xml
+.idea/libraries/ClientRelationshipManagerFrontEnd_node_modules.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/scopes/scope_settings.xml
+.idea/vcs.xml
+.idea/workspace.xml
+build/bundle.js
