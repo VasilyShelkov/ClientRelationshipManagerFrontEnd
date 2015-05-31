@@ -36,3 +36,5 @@ node_modules
 .idea/vcs.xml
 .idea/workspace.xml
 build/bundle.js
+bower_components/*
+node_modules/*

@@ -8,6 +8,10 @@
     "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build --port 9090",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/VasilyShelkov/ClientRelationshipManagerFrontEnd"
+  },
   "author": "Vasily Shelkov",
   "license": "ISC",
   "devDependencies": {
@@ -16,7 +20,6 @@
     "css-loader": "^0.14.0",
     "file-loader": "^0.8.3",
     "moment": "^2.10.3",
-    "node-libs-browser": "^0.5.2",
     "style-loader": "^0.12.2",
     "url-loader": "^0.5.5",
     "webpack": "^1.9.8"
@@ -24,7 +27,6 @@
   "dependencies": {
     "flux": "^2.0.3",
     "hammerjs": "^2.0.4",
-    "request": "^2.55.0",
     "superagent": "^1.2.0"
   }
 }
