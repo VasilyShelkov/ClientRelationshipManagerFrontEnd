@@ -11,6 +11,7 @@ class NameBox extends React.Component {
     super(props);
     this.state = {
       names: NameStore.getNames(),
+      nameType: "unprotectedNames"
     };
   }
 
@@ -18,6 +19,12 @@ class NameBox extends React.Component {
     this.setState({
         names: NameStore.getNames(),
     });
+  }
+
+  setNameType(type) {
+    this.setState({
+      nameType: type
+    })
   }
 
   componentDidMount() {
@@ -32,9 +39,7 @@ class NameBox extends React.Component {
 
   render() {
     let namesStyle = {
-      marginTop:'15px',
-      paddingLeft: '15px',
-      paddingRight: '15px'
+      marginTop:'15px'
     }
 
     return (
@@ -47,7 +52,8 @@ class NameBox extends React.Component {
           </div>
         </div>
 
-        <button className="waves-effect waves-light btn-large btn-flat"
+
+        <button className="waves-effect waves-light btn-large"
         onClick={this._onLoadUnprotectedNames.bind(this)}>
           Unprotected
         </button>
@@ -72,14 +78,17 @@ class NameBox extends React.Component {
 
   _onLoadUnprotectedNames() {
     NameActions.loadAllUnprotectedNames(this.props.accountId);
+    this.setNameType("unprotectedNames");
   }
 
   _onLoadProtectedNames() {
     NameActions.loadAllProtectedNames(this.props.accountId);
+    this.setNameType("protectedNames");
   }
 
   _onLoadClients() {
     NameActions.loadAllClients(this.props.accountId);
+    this.setNameType("clients");
   }
 }
 

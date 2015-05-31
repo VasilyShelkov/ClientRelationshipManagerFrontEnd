@@ -1,8 +1,9 @@
 var path = require('path');
 var node_modules = path.resolve(__dirname, 'node_modules');
 var pathToReact = path.resolve(node_modules, 'react/dist/react.js');
+var pathToMaterialUI = path.resolve(node_modules, 'material-ui')
 var pathToHammerjs = path.resolve(node_modules, 'hammerjs/hammer.min.js');
-var pathToMoment = path.resolve(node_modules, 'moment/min/moment.min.js')
+var pathToMoment = path.resolve(node_modules, 'moment/min/moment.min.js');
 
 var bowerComponents = path.resolve(__dirname, 'bower_components');
 var pathToMaterializeCSS = path.resolve(bowerComponents, 'materialize/dist/css/materialize.min.css');
@@ -13,6 +14,7 @@ module.exports = {
     entry: ['webpack/hot/dev-server', path.resolve(__dirname, 'src/js/home.js')],
     resolve: {
         alias: {
+            'mui': pathToMaterialUI,
             'react': pathToReact,
             'jquery': pathToJquery,
             'hammerjs': pathToHammerjs,
@@ -33,6 +35,7 @@ module.exports = {
       ],
       noParse: [
         pathToReact,
+        pathToMaterialUI,
         pathToMaterializeJS,
         pathToMaterializeCSS,
         pathToJquery,

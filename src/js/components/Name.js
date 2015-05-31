@@ -1,5 +1,8 @@
 import React from 'react';
 import Request from 'superagent';
+import UnprotectedName from './UnprotectedName.js';
+import ProtectedName from './ProtectedName.js';
+import Client from './Client.js';
 
 class Name extends React.Component {
 
@@ -26,26 +29,54 @@ class Name extends React.Component {
         company = this.props.name.company
       };
 
+      let details = "";
+      switch (this.props.nameType) {
+        case "unprotectedNames":
+            details = <UnprotectedName
+              details={this.state.details}
+              accountId={this.props.accountId}>
+              nameId={this.props.name.nameId}>
+            </UnprotectedName>
+        break;
+        case "protectedNames":
+            details = <Client
+              details={this.state.details}
+              accountId={this.props.accountId}>
+              nameId={this.props.name.nameId}>
+            </Client>
+        break;
+        case "clients":
+            details = <ProtectedName
+              details={this.state.details}
+              accountId={this.props.accountId}>
+              nameId={this.props.name.nameId}>
+            </ProtectedName>
+        break;
+        default:
+
+      }
+
       return (
         <li className="collection-item avatar col s12">
             <img src="" alt="" className="circle"></img>
             <ul>
-                <li className="col m3">
+              <div className="col s12 m6">
+                <li className="col s4">
                   <span className="title">
-                    <h5 className="grey-text text-darken">
+                    <h6 className="grey-text text-darken">
                     {this.props.name.firstName} {this.props.name.otherNames}
-                    </h5>
+                    </h6>
                   </span>
                 </li>
 
-                <li className="col m2">
+                <li className="col s4">
                   <p>
                     <i className="small mdi-communication-business"></i>
                     {company}<br></br>
                   </p>
                 </li>
 
-                <li className="col m2">
+                <li className="col s4">
                   <p>
                     <i className="tiny mdi-hardware-phone-android"></i>
                     {this.props.name.mobileNumber}
@@ -54,10 +85,11 @@ class Name extends React.Component {
                     {this.props.name.officeNumber}
                   </p>
                 </li>
+              </div>
 
-                <li>
-                  {this.props.children}
-                </li>
+              <div className="col s12 m6">
+                {details}
+              </div>
             </ul>
         </li>
       );

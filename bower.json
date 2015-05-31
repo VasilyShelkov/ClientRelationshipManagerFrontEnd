@@ -20,5 +20,6 @@
   ],
   "devDependencies": {
     "materialize": "~0.96.1"
-  }
+  },
+  "dependencies": {}
 }
