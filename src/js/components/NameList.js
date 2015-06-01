@@ -1,6 +1,6 @@
 import React from 'react';
 import Name from './Name.js';
-import './button.css'
+import './button.css';
 
 class NameList extends React.Component {
 
@@ -14,8 +14,7 @@ class NameList extends React.Component {
             <Name
               name={name}
               nameType={this.props.nameType}
-              accountId={this.props.accountId}>
-            </Name>
+              accountId={this.props.accountId} />
           );
       });
 

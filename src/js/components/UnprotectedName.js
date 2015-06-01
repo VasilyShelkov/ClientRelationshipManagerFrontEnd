@@ -11,7 +11,7 @@ class UnprotectedName extends React.Component {
   render() {
     return (
       <li>
-      hello
+        {Moment(this.props.details.addedAt, "x").fromNow()}
       </li>
     );
   }

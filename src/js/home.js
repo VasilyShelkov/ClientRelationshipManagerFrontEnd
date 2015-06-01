@@ -1,12 +1,12 @@
 import React from 'react';
 import NameBox from './components/NameBox';
 
-import './home.css'
-
 import 'jquery';
 import 'hammerjs';
 import 'materializeJS';
 import 'materializeCSS';
+
+import './home.css';
 
 React.render(
 <NameBox accountId="1"/>,

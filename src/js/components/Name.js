@@ -18,39 +18,39 @@ class Name extends React.Component {
           .withCredentials()
           .end((error, response) => {
               this.setState({details: response.body});
-          })
+          });
     }
 
     render() {
-      var company = "";
-      if (this.props.name.company == "") {
-        company = "Unknown"
+      var company = '';
+      if (this.props.name.company === '') {
+        company = 'Unknown';
       }else {
-        company = this.props.name.company
-      };
+        company = this.props.name.company;
+      }
 
-      let details = "";
+      let details = '';
       switch (this.props.nameType) {
-        case "unprotectedNames":
-            details = <UnprotectedName
+        case 'unprotectedNames':
+            details = (<UnprotectedName
               details={this.state.details}
               accountId={this.props.accountId}>
               nameId={this.props.name.nameId}>
-            </UnprotectedName>
+            </UnprotectedName>);
         break;
-        case "protectedNames":
-            details = <Client
+        case 'protectedNames':
+            details = (<Client
               details={this.state.details}
               accountId={this.props.accountId}>
               nameId={this.props.name.nameId}>
-            </Client>
+            </Client>);
         break;
-        case "clients":
-            details = <ProtectedName
+        case 'clients':
+            details = (<ProtectedName
               details={this.state.details}
               accountId={this.props.accountId}>
               nameId={this.props.name.nameId}>
-            </ProtectedName>
+            </ProtectedName>);
         break;
         default:
 
@@ -92,7 +92,7 @@ class Name extends React.Component {
               </div>
             </ul>
         </li>
-      );
+        );
     }
 }
 

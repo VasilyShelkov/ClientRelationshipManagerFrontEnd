@@ -1,7 +1,6 @@
 import React from 'react';
-import NameList from './NameList.react';
+import NameList from './NameList.js';
 import NameStore from '../stores/NameStore.js';
-import AppDispatcher from '../dispatcher/AppDispatcher.js';
 import NameActions from '../actions/NameActions.js';
 import './button.css';
 
@@ -11,20 +10,20 @@ class NameBox extends React.Component {
     super(props);
     this.state = {
       names: NameStore.getNames(),
-      nameType: "unprotectedNames"
+      nameType: 'unprotectedNames'
     };
   }
 
   setNames() {
     this.setState({
-        names: NameStore.getNames(),
+        names: NameStore.getNames()
     });
   }
 
   setNameType(type) {
     this.setState({
       nameType: type
-    })
+    });
   }
 
   componentDidMount() {
@@ -39,8 +38,8 @@ class NameBox extends React.Component {
 
   render() {
     let namesStyle = {
-      marginTop:'15px'
-    }
+      marginTop: '15px'
+    };
 
     return (
       <div style={namesStyle}>
@@ -67,28 +66,28 @@ class NameBox extends React.Component {
         </button>
 
         <NameList names={this.state.names} nameType={this.state.nameType}
-        accountId={this.props.accountId}></NameList>
+        accountId={this.props.accountId} />
       </div>
-    )
+    );
   }
 
-  _onChange(data) {
+  _onChange() {
         this.setNames();
   }
 
   _onLoadUnprotectedNames() {
     NameActions.loadAllUnprotectedNames(this.props.accountId);
-    this.setNameType("unprotectedNames");
+    this.setNameType('unprotectedNames');
   }
 
   _onLoadProtectedNames() {
     NameActions.loadAllProtectedNames(this.props.accountId);
-    this.setNameType("protectedNames");
+    this.setNameType('protectedNames');
   }
 
   _onLoadClients() {
     NameActions.loadAllClients(this.props.accountId);
-    this.setNameType("clients");
+    this.setNameType('clients');
   }
 }
 
